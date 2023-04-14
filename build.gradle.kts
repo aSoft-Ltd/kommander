@@ -16,7 +16,6 @@ repositories {
 	maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
 }
 
-val tmp = 0
 allprojects {
     beforeEvaluate {
         repositories {
@@ -25,6 +24,6 @@ allprojects {
 		    maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
         }
         group = "tz.co.asoft"
-        version = "0.0.0"
+        version = asoft.versions.root.get()
     }
 }

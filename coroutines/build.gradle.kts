@@ -29,7 +29,7 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                api(projects.expectCore)
+                api(projects.komanderCore)
                 api(kotlinx.coroutines.test)
             }
         }

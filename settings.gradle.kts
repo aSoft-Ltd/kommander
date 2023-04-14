@@ -9,7 +9,7 @@ pluginManagement {
 
     dependencyResolutionManagement {
         versionCatalogs {
-            file("gradle/versions").listFiles().map {
+            file("../versions/gradle/versions").listFiles().map {
                 it.nameWithoutExtension to it.absolutePath
             }.forEach { (name, path) ->
                 create(name) { from(files(path)) }
@@ -32,7 +32,7 @@ fun includeSubs(base: String, path: String = base, vararg subs: String) {
 
 rootProject.name = "asoft"
 
-includeBuild("../able)
+includeBuild("../able")
 // dependencies
 includeSubs("functions", "../functions", "core")
 
