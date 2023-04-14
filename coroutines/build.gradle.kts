@@ -15,9 +15,9 @@ kotlin {
         library()
     }
 
-    if (Targeting.WASM) wasm {
-        library()
-    }
+//    if (Targeting.WASM) wasm {
+//        library()
+//    }
 
     val osxTargets = if (Targeting.OSX) osxTargets() else listOf()
     val ndkTargets = if (Targeting.NDK) ndkTargets() else listOf()

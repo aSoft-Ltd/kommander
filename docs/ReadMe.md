@@ -31,3 +31,14 @@ dependencies {
     implementation("tz.co.asoft:kommander-coroutines:[version]")
 }
 ```
+
+## Usage
+### To be documented
+## Nullability
+```kotlin
+val name: String? = null
+expect(name).toBeNull()
+
+val age: Int = 0
+expect(age).toBeNonNull()
+```
