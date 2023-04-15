@@ -1,9 +1,3 @@
-import org.jetbrains.kotlin.gradle.dsl.KotlinCompile
-import org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootExtension
-import org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootPlugin
-import org.jetbrains.kotlin.gradle.targets.js.npm.tasks.KotlinNpmInstallTask
-import org.jetbrains.kotlin.gradle.tasks.Kotlin2JsCompile
-
 plugins {
     kotlin("multiplatform")
     id("tz.co.asoft.library")

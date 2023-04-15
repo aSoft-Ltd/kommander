@@ -27,7 +27,6 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 api(projects.kommanderCore)
-//                api(kotlinx.atomicfu)
                 api(kotlinx.coroutines.test)
             }
         }

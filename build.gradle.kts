@@ -1,9 +1,3 @@
-import org.jetbrains.kotlin.gradle.dsl.KotlinCompile
-import org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootExtension
-import org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootPlugin
-import org.jetbrains.kotlin.gradle.targets.js.npm.tasks.KotlinNpmInstallTask
-import org.jetbrains.kotlin.gradle.tasks.Kotlin2JsCompile
-
 @Suppress("DSL_SCOPE_VIOLATION") plugins {
     alias(androidx.plugins.library) apply false
     alias(kotlinz.plugins.multiplatform) apply false
@@ -18,6 +12,10 @@ import org.jetbrains.kotlin.gradle.tasks.Kotlin2JsCompile
 
 repositories {
 	publicRepos()
+}
+
+subprojects {
+    apply(plugin = "org.jetbrains.dokka")
 }
 
 allprojects {
