@@ -37,4 +37,4 @@ includeBuild("../able")
 includeSubs("functions", "../functions", "core")
 
 // submodules
-includeSubs("komander", ".", "core", "coroutines")
+includeSubs("kommander", ".", "core", "coroutines")

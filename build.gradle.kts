@@ -1,3 +1,9 @@
+import org.jetbrains.kotlin.gradle.dsl.KotlinCompile
+import org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootExtension
+import org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootPlugin
+import org.jetbrains.kotlin.gradle.targets.js.npm.tasks.KotlinNpmInstallTask
+import org.jetbrains.kotlin.gradle.tasks.Kotlin2JsCompile
+
 @Suppress("DSL_SCOPE_VIOLATION") plugins {
     alias(androidx.plugins.library) apply false
     alias(kotlinz.plugins.multiplatform) apply false
@@ -12,17 +18,10 @@
 
 repositories {
 	publicRepos()
-	mavenLocal()
-	maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
 }
 
 allprojects {
     beforeEvaluate {
-        repositories {
-            publicRepos()
-            mavenLocal()
-		    maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
-        }
         group = "tz.co.asoft"
         version = asoft.versions.root.get()
     }

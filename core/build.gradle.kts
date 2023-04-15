@@ -1,3 +1,9 @@
+import org.jetbrains.kotlin.gradle.dsl.KotlinCompile
+import org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootExtension
+import org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootPlugin
+import org.jetbrains.kotlin.gradle.targets.js.npm.tasks.KotlinNpmInstallTask
+import org.jetbrains.kotlin.gradle.tasks.Kotlin2JsCompile
+
 plugins {
     kotlin("multiplatform")
     id("tz.co.asoft.library")
@@ -34,7 +40,7 @@ kotlin {
             }
         }
 
-        if(Targeting.JVM) {
+        if (Targeting.JVM) {
             val jvmMain by getting {
                 dependencies {
                     api(kotlin("test-junit5"))
@@ -50,8 +56,14 @@ kotlin {
             dependsOn(nonJvmMain)
         }
 
-        if(Targeting.JS) {
+        if (Targeting.JS) {
             val jsMain by getting {
+                dependsOn(nonJvmMain)
+            }
+        }
+
+        if (Targeting.WASM) {
+            val wasmMain by getting {
                 dependsOn(nonJvmMain)
             }
         }
