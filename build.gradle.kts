@@ -18,6 +18,12 @@ subprojects {
     apply(plugin = "org.jetbrains.dokka")
 }
 
+tasks.dokkaHtmlMultiModule {
+    moduleName.set("Kommander")
+    outputDirectory.set(rootDir.resolve("docs/${asoft.versions.root.get()}"))
+	moduleVersion.set(asoft.versions.root.get())
+}
+
 allprojects {
     beforeEvaluate {
         group = "tz.co.asoft"
