@@ -20,7 +20,7 @@ subprojects {
 
 tasks.dokkaHtmlMultiModule {
     moduleName.set("Kommander")
-    outputDirectory.set(rootDir.resolve("docs/${asoft.versions.root.get()}"))
+    outputDirectory.set(rootDir.resolve("docs"))
 	moduleVersion.set(asoft.versions.root.get())
 }
 
