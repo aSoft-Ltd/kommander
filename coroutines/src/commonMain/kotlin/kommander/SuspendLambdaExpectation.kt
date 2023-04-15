@@ -1,14 +1,7 @@
-package expect.internal
+package kommander
 
-import expect.BasicExpectation
-import expect.SuspendLambdaExpectation
-
-@Deprecated("use kommander instead")
-@PublishedApi
-internal class SuspendLambdaExpectationImpl(
-    override val value: suspend () -> Unit
-) : SuspendLambdaExpectation, BasicExpectation<suspend () -> Unit> by BasicExpectationImpl(value) {
-    override suspend fun toFail(): Throwable {
+interface SuspendLambdaExpectation : BasicExpectation<suspend () -> Unit> {
+    suspend fun toFail(): Throwable {
         var throwable: Throwable? = null
         try {
             value()
@@ -21,7 +14,7 @@ internal class SuspendLambdaExpectationImpl(
     }
 
 
-    override suspend fun toPass() {
+    suspend fun toPass() {
         var passed = false
         try {
             value()

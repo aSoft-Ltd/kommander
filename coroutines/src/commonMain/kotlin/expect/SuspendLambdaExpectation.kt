@@ -1,6 +1,8 @@
 package expect
 
+@Deprecated("use kommander instead")
 interface SuspendLambdaExpectation : BasicExpectation<suspend () -> Unit> {
+    @Deprecated("use kommander instead")
     suspend fun toFail(): Throwable {
         var throwable: Throwable? = null
         try {
@@ -13,7 +15,7 @@ interface SuspendLambdaExpectation : BasicExpectation<suspend () -> Unit> {
         }
     }
 
-
+    @Deprecated("use kommander instead")
     suspend fun toPass() {
         var passed = false
         try {

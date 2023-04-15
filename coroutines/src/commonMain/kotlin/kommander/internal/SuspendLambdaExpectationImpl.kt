@@ -1,9 +1,8 @@
-package expect.internal
+package kommander.internal
 
-import expect.BasicExpectation
-import expect.SuspendLambdaExpectation
+import kommander.BasicExpectation
+import kommander.SuspendLambdaExpectation
 
-@Deprecated("use kommander instead")
 @PublishedApi
 internal class SuspendLambdaExpectationImpl(
     override val value: suspend () -> Unit
