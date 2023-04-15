@@ -6,6 +6,7 @@ package expect
  * Samples
  *
  */
+@Deprecated("use kommander instead")
 expect interface BasicExpectation<out E> {
     val value: E
 

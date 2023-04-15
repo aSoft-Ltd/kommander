@@ -8,6 +8,7 @@ import kotlin.test.assertTrue
  * Samples
  *
  */
+@Deprecated("use kommander instead")
 actual interface BasicExpectation<out E> {
     actual val value: E
 

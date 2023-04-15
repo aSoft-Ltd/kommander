@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import static expect.ExpectBuilders.*;
+import static kommander.ExpectBuilders.*;
 
 public class ExpectationJavaTest {
     @Test

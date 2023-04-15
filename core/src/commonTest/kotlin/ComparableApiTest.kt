@@ -1,4 +1,4 @@
-import expect.*
+import kommander.*
 import kotlin.test.Test
 
 class ComparableApiTest {

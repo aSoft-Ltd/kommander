@@ -1,4 +1,4 @@
-import expect.expectFunction
+import kommander.expectFunction
 import kotlin.test.Test
 
 class LambdaTest {

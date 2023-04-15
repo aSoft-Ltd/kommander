@@ -6,6 +6,7 @@ package expect
  * Samples
  *
  */
+@Deprecated("use kommander instead")
 interface CollectionExpectation<out E> : BasicExpectation<Collection<E>?> {
     fun toContain(vararg elements: @UnsafeVariance E?)
 

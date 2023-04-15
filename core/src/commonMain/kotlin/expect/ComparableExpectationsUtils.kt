@@ -2,6 +2,7 @@ package expect
 
 import kotlin.test.assertTrue
 
+@Deprecated("use kommander instead")
 fun <T : Comparable<T>> BasicExpectation<T>.toBeGreaterThan(expected: T) = assertTrue(
     """
         
@@ -13,6 +14,7 @@ fun <T : Comparable<T>> BasicExpectation<T>.toBeGreaterThan(expected: T) = asser
     value > expected
 }
 
+@Deprecated("use kommander instead")
 fun <T : Comparable<T>> BasicExpectation<T>.toBeGreaterThanOrEqualTo(expected: T) = assertTrue(
     """
         
@@ -24,6 +26,7 @@ fun <T : Comparable<T>> BasicExpectation<T>.toBeGreaterThanOrEqualTo(expected: T
     value >= expected
 }
 
+@Deprecated("use kommander instead")
 fun <T : Comparable<T>> BasicExpectation<T>.toBeLessThan(expected: T) = assertTrue(
     """
         
@@ -35,6 +38,7 @@ fun <T : Comparable<T>> BasicExpectation<T>.toBeLessThan(expected: T) = assertTr
     value < expected
 }
 
+@Deprecated("use kommander instead")
 fun <T : Comparable<T>> BasicExpectation<T>.toBeLessThanOrEqualTo(expected: T) = assertTrue(
     """
         

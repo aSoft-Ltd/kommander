@@ -1,7 +1,7 @@
-import expect.expect
-import expect.expectCollection
-import expect.expectMany
-import expect.toBe
+import kommander.expect
+import kommander.expectCollection
+import kommander.expectMany
+import kommander.toBe
 import kotlin.test.Test
 
 class CollectionsApiTest {

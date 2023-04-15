@@ -10,23 +10,31 @@ import functions.Runnable
 import kotlin.jvm.JvmName
 import kotlin.jvm.JvmSynthetic
 
+@Deprecated("use kommander instead")
 fun <E> expect(value: E): BasicExpectation<E> = BasicExpectationImpl(value)
 
+@Deprecated("use kommander instead")
 fun <E> expect(vararg value: E): CollectionExpectation<E> = CollectionExpectationImpl(value.asList())
 
+@Deprecated("use kommander instead")
 fun <E> expectArray(array: Array<E>): CollectionExpectation<E> = CollectionExpectationImpl(array.asList())
 
+@Deprecated("use kommander instead")
 fun <E> expectCollection(collection: Collection<E>?): CollectionExpectation<E> = CollectionExpectationImpl(collection)
 
+@Deprecated("use kommander instead")
 fun <E> expect(collection: Collection<E>?): CollectionExpectation<E> = CollectionExpectationImpl(collection)
 
+@Deprecated("use kommander instead")
 inline fun <E> expect(
     value: E,
     builder: BasicExpectation<E>.() -> Unit
 ): BasicExpectation<E> = expect(value).apply(builder)
 
+@Deprecated("use kommander instead")
 fun expectFunction(lambda: Runnable): LambdaExpectation = LambdaExpectationImpl(lambda::run)
 
+@Deprecated("use kommander instead")
 inline fun <E> expectMany(
     value: Collection<E>,
     builder: CollectionExpectation<E>.() -> Unit
