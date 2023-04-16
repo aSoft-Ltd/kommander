@@ -4,23 +4,12 @@ A highly interoperable kotlin multiplatform assertion library
 
 [badges]
 
-## Samples
+## Usage
+### 1. Simple assertions
+[inject](../core/src/commonTest/kotlin/samples/BasicSyntax.kt)
 
-```kotlin
-expect(1 + 1).toBe(2)
-```
-
-```kotlin
-expect(2 + 2) {
-    toBeEqualTo(4)
-    toBeLessThan(5)
-    toBeGreaterThan(1)
-    toBeNonNull()
-    toBe<Int>()
-    toBe<Number>()
-    toBe<Comparable<*>>()
-}
-```
+### 2. Compound assertions
+[inject](../core/src/commonTest/kotlin/samples/CompoundSyntax.kt)
 
 ## Setup: Gradle
 

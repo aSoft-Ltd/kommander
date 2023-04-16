@@ -1,11 +1,5 @@
 # Kommander
 
-# Module functions-core
-A bunch of functions
-
-# Package functions
-
-
 A highly interoperable kotlin multiplatform assertion library
 
 ![Maven](https://img.shields.io/maven-central/v/tz.co.asoft/Kommander/2.0.13?style=for-the-badge)
@@ -17,23 +11,52 @@ A highly interoperable kotlin multiplatform assertion library
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
 
-## Samples
+## Usage
+### 1. Simple assertions
 
 ```kotlin
-expect(1 + 1).toBe(2)
-```
+package samples
 
-```kotlin
-expect(2 + 2) {
-    toBeEqualTo(4)
-    toBeLessThan(5)
-    toBeGreaterThan(1)
-    toBeNonNull()
-    toBe<Int>()
-    toBe<Number>()
-    toBe<Comparable<*>>()
+import kommander.expect
+import kotlin.test.Test
+
+class BasicSyntax {
+
+    @Test
+    fun should_make_simple_arithmetics_assertions() {
+        expect(1+1).toBe(2)
+    }
+
 }
 ```
+
+
+### 2. Compound assertions
+
+```kotlin
+package samples
+
+import kommander.*
+import kotlin.test.Test
+
+class CompoundSyntax {
+
+    @Test
+    fun should_make_compound_arithmetics_assertions() {
+        expect(2 + 2) {
+            toBeEqualTo(4)
+            toBeLessThan(5)
+            toBeGreaterThan(1)
+            toBeNonNull()
+            toBe<Int>()
+            toBe<Number>()
+            toBe<Comparable<*>>()
+        }
+    }
+    
+}
+```
+
 
 ## Setup: Gradle
 

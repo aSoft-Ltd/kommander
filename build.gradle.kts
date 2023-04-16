@@ -1,5 +1,3 @@
-import org.jetbrains.dokka.gradle.DokkaTask
-
 @Suppress("DSL_SCOPE_VIOLATION") plugins {
     alias(androidx.plugins.library) apply false
     alias(kotlinz.plugins.multiplatform) apply false
@@ -18,17 +16,6 @@ repositories {
 
 subprojects {
     apply(plugin = "org.jetbrains.dokka")
-}
-
-tasks.withType<DokkaTask>().configureEach {
-    dokkaSourceSets {
-        named("main") {
-            // contains descriptions for the module and the packages
-            if(file("docs/Module.md").exists()) {
-                includes.from("docs/Module.md")
-            }
-        }
-    }
 }
 
 tasks.dokkaHtmlMultiModule {
