@@ -22,6 +22,7 @@ tasks.dokkaHtmlMultiModule {
     moduleName.set("Kommander")
     outputDirectory.set(rootDir.resolve("docs"))
 	moduleVersion.set(asoft.versions.root.get())
+    includes.from("ReadMe.md")
 }
 
 allprojects {
