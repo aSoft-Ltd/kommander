@@ -12,48 +12,38 @@ A highly interoperable kotlin multiplatform assertion library
 ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
 
 ## Usage
-### 1. Simple assertions
+Simple usage is to just let your commander `expect` something and let your IDE guide you in
+prompting what assertion you need to do with your expected assumption
+
 
 ```kotlin
 package samples
 
 import kommander.expect
+import kommander.toBeGreaterThan
+import kommander.toBeLessThan
 import kotlin.test.Test
 
-class BasicSyntax {
+data class Person(val name: String, val age: Int)
+
+class PersonTest {
+    val person = Person("John Doe", 30)
 
     @Test
-    fun should_make_simple_arithmetics_assertions() {
-        expect(1+1).toBe(2)
+    fun should_perform_basic_assertions() {
+        expect(person.name).toBe("John Doe")
+        expect(person.age).toBe(30)
     }
 
-}
-```
-
-
-### 2. Compound assertions
-
-```kotlin
-package samples
-
-import kommander.*
-import kotlin.test.Test
-
-class CompoundSyntax {
-
     @Test
-    fun should_make_compound_arithmetics_assertions() {
-        expect(2 + 2) {
-            toBeEqualTo(4)
-            toBeLessThan(5)
-            toBeGreaterThan(1)
+    fun should_perform_compound_assertion() {
+        expect(person.age) {
+            toBe(30)
+            toBeLessThan(50)
+            toBeGreaterThan(18)
             toBeNonNull()
-            toBe<Int>()
-            toBe<Number>()
-            toBe<Comparable<*>>()
         }
     }
-    
 }
 ```
 
@@ -68,9 +58,8 @@ dependencies {
 }
 ```
 
-## Usage
-### To be documented
 ## Nullability
+You can easily test nullability on your assertions like shown bellow
 ```kotlin
 val name: String? = null
 expect(name).toBeNull()
@@ -78,3 +67,5 @@ expect(name).toBeNull()
 val age: Int = 0
 expect(age).toBeNonNull()
 ```
+
+## Custom Expectations

@@ -2,7 +2,7 @@ package kommander
 
 import kotlin.test.assertTrue
 
-fun <T : Comparable<T>> BasicExpectation<T>.toBeGreaterThan(expected: T) = assertTrue(
+fun <T : Comparable<T>> Expect<T>.toBeGreaterThan(expected: T) = assertTrue(
     """
         
     Expected : $value to be greater than $expected
@@ -13,7 +13,7 @@ fun <T : Comparable<T>> BasicExpectation<T>.toBeGreaterThan(expected: T) = asser
     value > expected
 }
 
-fun <T : Comparable<T>> BasicExpectation<T>.toBeGreaterThanOrEqualTo(expected: T) = assertTrue(
+fun <T : Comparable<T>> Expect<T>.toBeGreaterThanOrEqualTo(expected: T) = assertTrue(
     """
         
     Expected : $value to be grater or equal to $expected
@@ -24,7 +24,7 @@ fun <T : Comparable<T>> BasicExpectation<T>.toBeGreaterThanOrEqualTo(expected: T
     value >= expected
 }
 
-fun <T : Comparable<T>> BasicExpectation<T>.toBeLessThan(expected: T) = assertTrue(
+fun <T : Comparable<T>> Expect<T>.toBeLessThan(expected: T) = assertTrue(
     """
         
     Expected : $value to be less than $expected
@@ -35,7 +35,7 @@ fun <T : Comparable<T>> BasicExpectation<T>.toBeLessThan(expected: T) = assertTr
     value < expected
 }
 
-fun <T : Comparable<T>> BasicExpectation<T>.toBeLessThanOrEqualTo(expected: T) = assertTrue(
+fun <T : Comparable<T>> Expect<T>.toBeLessThanOrEqualTo(expected: T) = assertTrue(
     """
         
     Expected : $value to be less than or equal to $expected

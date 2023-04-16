@@ -1,11 +1,11 @@
 package kommander.internal
 
-import kommander.BasicExpectation
-import kommander.LambdaExpectation
+import kommander.Expect
+import kommander.ExpectLambda
 
-internal class LambdaExpectationImpl(
+internal class ExpectExpectLambda(
     override val value: () -> Unit
-) : LambdaExpectation, BasicExpectation<() -> Unit> by BasicExpectationImpl(value) {
+) : ExpectLambda, Expect<() -> Unit> by ExpectImpl(value) {
     override fun toFail(): Throwable {
         var throwable: Throwable? = null
         try {

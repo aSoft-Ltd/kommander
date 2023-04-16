@@ -6,7 +6,7 @@ package kommander
  * Samples
  *
  */
-interface CollectionExpectation<out E> : BasicExpectation<Collection<E>?> {
+interface ExpectCollection<out E> : Expect<Collection<E>?> {
     fun toContain(vararg elements: @UnsafeVariance E?)
 
     fun toNotContain(vararg elements: @UnsafeVariance E?)

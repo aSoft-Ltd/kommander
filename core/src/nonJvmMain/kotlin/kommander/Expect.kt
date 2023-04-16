@@ -6,7 +6,7 @@ package kommander
  * Samples
  *
  */
-actual interface BasicExpectation<out E> {
+actual interface Expect<out E> {
     actual val value: E
 
     actual fun toBeNonNull(message: String)

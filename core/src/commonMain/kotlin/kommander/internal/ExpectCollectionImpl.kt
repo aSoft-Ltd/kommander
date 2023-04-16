@@ -1,7 +1,7 @@
 package kommander.internal
 
-import kommander.BasicExpectation
-import kommander.CollectionExpectation
+import kommander.Expect
+import kommander.ExpectCollection
 import kotlin.test.assertTrue
 
 /**
@@ -11,9 +11,9 @@ import kotlin.test.assertTrue
  *
  */
 @PublishedApi
-internal class CollectionExpectationImpl<E>(
+internal class ExpectCollectionImpl<E>(
     override val value: Collection<E>?
-) : CollectionExpectation<E>, BasicExpectation<Collection<E>?> by BasicExpectationImpl(value) {
+) : ExpectCollection<E>, Expect<Collection<E>?> by ExpectImpl(value) {
     override fun toContain(vararg elements: E?) = assertTrue(
         """
             

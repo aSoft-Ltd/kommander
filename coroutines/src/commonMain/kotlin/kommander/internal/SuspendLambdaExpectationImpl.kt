@@ -1,12 +1,12 @@
 package kommander.internal
 
-import kommander.BasicExpectation
+import kommander.Expect
 import kommander.SuspendLambdaExpectation
 
 @PublishedApi
 internal class SuspendLambdaExpectationImpl(
     override val value: suspend () -> Unit
-) : SuspendLambdaExpectation, BasicExpectation<suspend () -> Unit> by BasicExpectationImpl(value) {
+) : SuspendLambdaExpectation, Expect<suspend () -> Unit> by ExpectImpl(value) {
     override suspend fun toFail(): Throwable {
         var throwable: Throwable? = null
         try {

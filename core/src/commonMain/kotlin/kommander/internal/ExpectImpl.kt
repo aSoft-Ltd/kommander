@@ -1,11 +1,11 @@
 package kommander.internal
 
-import kommander.BasicExpectation
+import kommander.Expect
 import kotlin.test.assertEquals
 import kotlin.test.assertNotNull
 import kotlin.test.assertNull
 
-class BasicExpectationImpl<E>(override val value: E) : BasicExpectation<E> {
+class ExpectImpl<E>(override val value: E) : Expect<E> {
     override fun toBeNonNull(message: String) {
         assertNotNull(value, message)
     }

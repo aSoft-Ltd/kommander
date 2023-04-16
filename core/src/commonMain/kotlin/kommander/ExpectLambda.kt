@@ -1,6 +1,6 @@
 package kommander
 
-interface LambdaExpectation : BasicExpectation<() -> Unit> {
+interface ExpectLambda : Expect<() -> Unit> {
     fun toFail(): Throwable
 
     fun toPass()

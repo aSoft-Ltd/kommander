@@ -1,6 +1,6 @@
 package kommander
 
-interface SuspendLambdaExpectation : BasicExpectation<suspend () -> Unit> {
+interface SuspendLambdaExpectation : Expect<suspend () -> Unit> {
     suspend fun toFail(): Throwable {
         var throwable: Throwable? = null
         try {
