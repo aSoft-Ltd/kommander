@@ -24,10 +24,8 @@ import kommander.toBeGreaterThan
 import kommander.toBeLessThan
 import kotlin.test.Test
 
-data class Person(val name: String, val age: Int)
-
 class PersonTest {
-    val person = Person("John Doe", 30)
+    val person = Person(name = "John Doe", age = 30)
 
     @Test
     fun should_perform_basic_assertions() {
@@ -59,7 +57,6 @@ dependencies {
 ```
 
 ## Nullability
-You can easily test nullability on your assertions like shown bellow
 ```kotlin
 val name: String? = null
 expect(name).toBeNull()
@@ -68,4 +65,49 @@ val age: Int = 0
 expect(age).toBeNonNull()
 ```
 
-## Custom Expectations
+## Custom Assertions
+You can create your custom assertions easily in kotlin as well
+
+
+```kotlin
+package samples
+
+import kommander.Expect
+import kommander.expect
+import kommander.toBeGreaterThan
+import kotlin.test.Test
+
+class CustomAssertionsTest {
+    val person = Person(name = "Jane", age = 19)
+
+    fun Expect<Person>.toBeAnAdult() {
+        expect(value.age).toBeGreaterThan(18)
+    }
+
+    @Test
+    fun test_adulthood() {
+        expect(person).toBeAnAdult()
+    }
+}
+```
+
+
+## Support
+
+There are multiple ways you can support this project
+
+### Star It
+
+If you found it useful, just give it a star
+
+### Contribute
+
+You can help by submitting pull request to available open tickets on the issues section
+
+### Report Issues
+
+This makes it easier to catch bugs and offer enhancements required
+
+## Credits
+
+- [andylamax](https://github.com/andylamax) - The author

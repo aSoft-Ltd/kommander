@@ -16,8 +16,8 @@ inline fun <E> Expect<E>.toBeEqualTo(expected: E, message: String? = null) = ass
 
 inline fun <T> Expect<T>.toBeUnequalTo(expected: T, message: String? = null) = assertNotEquals(expected, value, message)
 
-inline fun Expect<String?>.toContain(other: String, ignoreCase: Boolean = true) = assertTrue(
-    message = "Expected $value to contain $other"
+inline fun Expect<String?>.toContain(other: String, ignoreCase: Boolean = true, message: String? = null) = assertTrue(
+    message = message ?: "Expected $value to contain $other"
 ) {
     value?.contains(other, ignoreCase) == true
 }

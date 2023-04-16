@@ -20,8 +20,6 @@ dependencies {
 }
 ```
 
-## Usage
-### To be documented
 ## Nullability
 ```kotlin
 val name: String? = null
@@ -30,3 +28,28 @@ expect(name).toBeNull()
 val age: Int = 0
 expect(age).toBeNonNull()
 ```
+
+## Custom Assertions
+You can create your custom assertions easily in kotlin as well
+
+[inject](../core/src/commonTest/kotlin/samples/CustomAssertionsTest.kt)
+
+## Support
+
+There are multiple ways you can support this project
+
+### Star It
+
+If you found it useful, just give it a star
+
+### Contribute
+
+You can help by submitting pull request to available open tickets on the issues section
+
+### Report Issues
+
+This makes it easier to catch bugs and offer enhancements required
+
+## Credits
+
+- [andylamax](https://github.com/andylamax) - The author
