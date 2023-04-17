@@ -56,19 +56,12 @@
   <div class="cover ">
     <div class="cover ">
       <h1 class="">Kommander</h1>
-      <h1 class=""> Module functions-core</h1>
-      <p class="paragraph">A bunch of functions</p>
-      <h1 class=""> Package functions</h1>
       <p class="paragraph">A highly interoperable kotlin multiplatform assertion library</p>
       <p class="paragraph">       </p>
-      <h2 class=""> Samples</h2>
+      <h2 class=""> Usage</h2>
+      <p class="paragraph">Simple usage is to just let your commander <code class="lang-kotlin">expect</code> something and let your IDE guide you in prompting what assertion you need to do with your expected assumption</p>
       <div class="sample-container">
-        <pre><code class="block lang-kotlin" theme="idea">expect(1 + 1).toBe(2)</code></pre>
-<span class="top-right-position"><span class="copy-icon"></span>
-          <div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div>
-        </span></div>
-      <div class="sample-container">
-        <pre><code class="block lang-kotlin" theme="idea">expect(2 + 2) {<br>    toBeEqualTo(4)<br>    toBeLessThan(5)<br>    toBeGreaterThan(1)<br>    toBeNonNull()<br>    toBe&lt;Int&gt;()<br>    toBe&lt;Number&gt;()<br>    toBe&lt;Comparable&lt;*&gt;&gt;()<br>}</code></pre>
+        <pre><code class="block lang-kotlin" theme="idea">package samples<br><br>import kommander.expect<br>import kommander.toBeGreaterThan<br>import kommander.toBeLessThan<br>import kotlin.test.Test<br><br>class PersonTest {<br>    val person = Person(name = &quot;John Doe&quot;, age = 30)<br><br>    @Test<br>    fun should_perform_basic_assertions() {<br>        expect(person.name).toBe(&quot;John Doe&quot;)<br>        expect(person.age).toBe(30)<br>    }<br><br>    @Test<br>    fun should_perform_compound_assertion() {<br>        expect(person.age) {<br>            toBe(30)<br>            toBeLessThan(50)<br>            toBeGreaterThan(18)<br>            toBeNonNull()<br>        }<br>    }<br>}</code></pre>
 <span class="top-right-position"><span class="copy-icon"></span>
           <div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div>
         </span></div>
@@ -78,28 +71,36 @@
 <span class="top-right-position"><span class="copy-icon"></span>
           <div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div>
         </span></div>
-      <h2 class=""> Usage</h2>
-      <h3 class=""> To be documented</h3>
       <h2 class=""> Nullability</h2>
       <div class="sample-container">
         <pre><code class="block lang-kotlin" theme="idea">val name: String? = null<br>expect(name).toBeNull()<br><br>val age: Int = 0<br>expect(age).toBeNonNull()</code></pre>
 <span class="top-right-position"><span class="copy-icon"></span>
           <div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div>
         </span></div>
+      <h2 class=""> Custom Assertions</h2>
+      <p class="paragraph">You can create your custom assertions easily in kotlin as well</p>
+      <div class="sample-container">
+        <pre><code class="block lang-kotlin" theme="idea">package samples<br><br>import kommander.Expect<br>import kommander.expect<br>import kommander.toBeGreaterThan<br>import kotlin.test.Test<br><br>class CustomAssertionsTest {<br>    val person = Person(name = &quot;Jane&quot;, age = 19)<br><br>    fun Expect&lt;Person&gt;.toBeAnAdult() {<br>        expect(value.age).toBeGreaterThan(18)<br>    }<br><br>    @Test<br>    fun test_adulthood() {<br>        expect(person).toBeAnAdult()<br>    }<br>}</code></pre>
+<span class="top-right-position"><span class="copy-icon"></span>
+          <div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div>
+        </span></div>
+      <h2 class=""> Support</h2>
+      <p class="paragraph">There are multiple ways you can support this project</p>
+      <h3 class=""> Star It</h3>
+      <p class="paragraph">If you found it useful, just give it a star</p>
+      <h3 class=""> Contribute</h3>
+      <p class="paragraph">You can help by submitting pull request to available open tickets on the issues section</p>
+      <h3 class=""> Report Issues</h3>
+      <p class="paragraph">This makes it easier to catch bugs and offer enhancements required</p>
+      <h2 class=""> Credits</h2>
+      <ul>
+        <li>
+          <p class="paragraph"><a href="https://github.com/andylamax">andylamax</a> - The author</p>
+        </li>
+      </ul>
     </div>
     <h2 class="">All modules:</h2>
-    <div class="table"><a data-name="-1153657372%2FMain%2F0" anchor-label="functions-core" id="-1153657372%2FMain%2F0" data-filterable-set=""></a>
-      <div class="table-row">
-        <div class="main-subrow ">
-          <div class="w-100"><span class="inline-flex">
-              <div><a href="functions-core/index.html">functions-core</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1153657372%2FMain%2F0"></span>
-                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-              </span></span></div>
-          <div><span class="brief-comment"></span></div>
-        </div>
-      </div>
-<a data-name="533372105%2FMain%2F0" anchor-label="kommander-core" id="533372105%2FMain%2F0" data-filterable-set=""></a>
+    <div class="table"><a data-name="533372105%2FMain%2F0" anchor-label="kommander-core" id="533372105%2FMain%2F0" data-filterable-set=""></a>
       <div class="table-row">
         <div class="main-subrow ">
           <div class="w-100"><span class="inline-flex">

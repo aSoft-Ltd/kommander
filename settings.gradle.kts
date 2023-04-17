@@ -33,8 +33,6 @@ fun includeSubs(base: String, path: String = base, vararg subs: String) {
 rootProject.name = "Kommander"
 
 includeBuild("../able")
-// dependencies
-includeSubs("functions", "../functions", "core")
 
 // submodules
 includeSubs("kommander", ".", "core", "coroutines")
