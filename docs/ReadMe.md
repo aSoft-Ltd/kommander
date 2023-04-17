@@ -4,7 +4,7 @@ A highly interoperable kotlin multiplatform assertion library
 
 [badges]
 
-## Usage
+## Usage [version]
 Simple usage is to just let your commander `expect` something and let your IDE guide you in
 prompting what assertion you need to do with your expected assumption
 
