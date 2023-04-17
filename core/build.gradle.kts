@@ -29,7 +29,6 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                api(projects.functionsCore)
                 api(kotlin("test"))
             }
         }

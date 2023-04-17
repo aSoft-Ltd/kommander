@@ -5,8 +5,7 @@ package kommander
 
 import kommander.internal.ExpectImpl
 import kommander.internal.ExpectCollectionImpl
-import kommander.internal.ExpectExpectLambda
-import functions.Runnable
+import kommander.internal.ExpectLambda
 import kotlin.jvm.JvmName
 import kotlin.jvm.JvmSynthetic
 
@@ -25,7 +24,7 @@ inline fun <E> expect(
     builder: Expect<E>.() -> Unit
 ): Expect<E> = expect(value).apply(builder)
 
-fun expectFunction(lambda: Runnable): ExpectLambda = ExpectExpectLambda(lambda::run)
+fun expectFunction(lambda: ()->Unit): kommander.ExpectLambda = ExpectLambda(lambda)
 
 inline fun <E> expectMany(
     value: Collection<E>,

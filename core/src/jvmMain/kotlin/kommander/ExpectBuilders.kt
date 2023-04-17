@@ -2,7 +2,7 @@ package kommander
 
 import kommander.internal.ExpectImpl
 import kommander.internal.ExpectCollectionImpl
-import kommander.internal.ExpectExpectLambda
+import kommander.internal.ExpectLambda
 
 object ExpectBuilders {
     @JvmStatic
@@ -18,5 +18,5 @@ object ExpectBuilders {
     fun <E> expectCollection(collection: Collection<E>): ExpectCollection<E> = ExpectCollectionImpl(collection)
 
     @JvmStatic
-    fun expectFunction(lambda: Runnable): ExpectLambda = ExpectExpectLambda(lambda::run)
+    fun expectFunction(lambda: Runnable): kommander.ExpectLambda = ExpectLambda(lambda::run)
 }

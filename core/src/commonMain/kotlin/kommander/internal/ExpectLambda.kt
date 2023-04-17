@@ -3,7 +3,7 @@ package kommander.internal
 import kommander.Expect
 import kommander.ExpectLambda
 
-internal class ExpectExpectLambda(
+internal class ExpectLambda(
     override val value: () -> Unit
 ) : ExpectLambda, Expect<() -> Unit> by ExpectImpl(value) {
     override fun toFail(): Throwable {

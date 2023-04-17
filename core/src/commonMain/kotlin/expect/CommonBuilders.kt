@@ -6,7 +6,6 @@ package expect
 import expect.internal.BasicExpectationImpl
 import expect.internal.CollectionExpectationImpl
 import expect.internal.LambdaExpectationImpl
-import functions.Runnable
 import kotlin.jvm.JvmName
 import kotlin.jvm.JvmSynthetic
 
@@ -32,7 +31,7 @@ inline fun <E> expect(
 ): BasicExpectation<E> = expect(value).apply(builder)
 
 @Deprecated("use kommander instead")
-fun expectFunction(lambda: Runnable): LambdaExpectation = LambdaExpectationImpl(lambda::run)
+fun expectFunction(lambda: ()->Unit): LambdaExpectation = LambdaExpectationImpl(lambda)
 
 @Deprecated("use kommander instead")
 inline fun <E> expectMany(
