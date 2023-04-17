@@ -92,6 +92,10 @@ class CustomAssertionsTest {
 ```
 
 
+## Api Reference
+The full api reference of the kommander can be found at [https://asoft-ltd.github.io/kommander](https://asoft-ltd.github.io/kommander)
+
+
 ## Support
 
 There are multiple ways you can support this project

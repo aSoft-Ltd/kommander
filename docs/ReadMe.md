@@ -1,10 +1,10 @@
-# Kommander [version]
+# Kommander
 
 A highly interoperable kotlin multiplatform assertion library
 
 [badges]
 
-## Usage [version]
+## Usage
 Simple usage is to just let your commander `expect` something and let your IDE guide you in
 prompting what assertion you need to do with your expected assumption
 
@@ -33,6 +33,10 @@ expect(age).toBeNonNull()
 You can create your custom assertions easily in kotlin as well
 
 [inject](../core/src/commonTest/kotlin/samples/CustomAssertionsTest.kt)
+
+## Api Reference
+The full api reference of the kommander can be found at [https://asoft-ltd.github.io/kommander](https://asoft-ltd.github.io/kommander)
+
 
 ## Support
 
