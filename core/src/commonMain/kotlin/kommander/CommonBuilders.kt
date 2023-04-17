@@ -1,4 +1,4 @@
-@file:JvmName("Expect")
+@file:JvmName("Kommander")
 @file:JvmSynthetic
 
 package kommander
