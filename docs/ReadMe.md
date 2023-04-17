@@ -1,4 +1,4 @@
-# Kommander
+# Kommander [version]
 
 A highly interoperable kotlin multiplatform assertion library
 
