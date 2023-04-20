@@ -6,18 +6,9 @@ plugins {
 }
 
 kotlin {
-    if (Targeting.JVM) jvm {
-        library()
-    }
-
-    if (Targeting.JS) js(IR) {
-        library()
-    }
-
-//    if (Targeting.WASM) wasm {
-//        library()
-//    }
-
+    if (Targeting.JVM) jvm { library() }
+    if (Targeting.JS) js(IR) { library() }
+//    if (Targeting.WASM) wasm { library() }
     if (Targeting.OSX) osxTargets()
     if (Targeting.NDK) ndkTargets()
     if (Targeting.LINUX) linuxTargets()
