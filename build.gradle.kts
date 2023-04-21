@@ -2,14 +2,10 @@ import com.vanniktech.maven.publish.MavenPublishBaseExtension
 import com.vanniktech.maven.publish.SonatypeHost
 
 @Suppress("DSL_SCOPE_VIOLATION") plugins {
-    alias(androidx.plugins.library) apply false
     alias(kotlinz.plugins.multiplatform) apply false
-    alias(kotlinz.plugins.serialization) apply false
-    alias(kotlinz.plugins.compose) apply false
     alias(asoft.plugins.library) apply false
-    alias(petuska.plugins.root.npm.publish) apply false
-    alias(kotlinz.plugins.dokka)
     alias(vanniktech.plugins.maven.publish) apply false
+    alias(kotlinz.plugins.dokka)
 }
 
 repositories {
@@ -24,7 +20,7 @@ version = v
 tasks.dokkaHtmlMultiModule {
     moduleName.set("Kommander")
     outputDirectory.set(rootDir.resolve("docs"))
-    moduleVersion.set(asoft.versions.root.get())
+    moduleVersion.set(v)
     includes.from("ReadMe.md")
 }
 
