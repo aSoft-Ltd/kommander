@@ -1,9 +1,9 @@
-plugins {
+@Suppress("DSL_SCOPE_VIOLATION") plugins {
     kotlin("multiplatform")
     id("tz.co.asoft.library")
-    id("io.codearte.nexus-staging")
-    signing
 }
+
+description = "A highly interoperable kotlin multiplatform assertion library"
 
 kotlin {
     if (Targeting.JVM) jvm {
@@ -63,8 +63,3 @@ kotlin {
         }
     }
 }
-
-aSoftOSSLibrary(
-    version = asoft.versions.root.get(),
-    description = "A Minimal kotlin multiplatform assertion library"
-)

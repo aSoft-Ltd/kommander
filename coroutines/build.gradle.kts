@@ -1,9 +1,9 @@
 plugins {
     kotlin("multiplatform")
     id("tz.co.asoft.library")
-    id("io.codearte.nexus-staging")
-    signing
 }
+
+description = "An extension of kommander-core to ease assertions in a coroutine environment"
 
 kotlin {
     if (Targeting.JVM) jvm { library() }
@@ -23,8 +23,3 @@ kotlin {
         }
     }
 }
-
-aSoftOSSLibrary(
-    version = asoft.versions.root.get(),
-    description = "Extension of the expect-core library to add coroutines StateFlow support"
-)
