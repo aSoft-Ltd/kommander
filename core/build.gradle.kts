@@ -13,7 +13,12 @@ kotlin {
 
     if (Targeting.JS) js(IR) { library() }
     if (Targeting.WASM) wasm { library() }
-    val osxTargets = if (Targeting.OSX) osxTargets() else listOf()
+
+    val iosTargets = if (Targeting.OSX) iosTargets() else listOf()
+    val tvOsTargets = if (Targeting.OSX) tvOsTargets() else listOf()
+    val macOsTargets = if (Targeting.OSX) macOsTargets() else listOf()
+    val watchOsTargets = if (Targeting.OSX) watchOsTargets() else listOf()
+    val osxTargets = if (Targeting.OSX) (iosTargets + tvOsTargets + macOsTargets + watchOsTargets) else listOf()
     val ndkTargets = if (Targeting.NDK) ndkTargets() else listOf()
     val linuxTargets = if (Targeting.LINUX) linuxTargets() else listOf()
     val mingwTargets = if (Targeting.MINGW) mingwTargets() else listOf()
@@ -39,6 +44,10 @@ kotlin {
             dependsOn(commonMain)
         }
 
+        val watchOsMain by creating {
+            dependsOn(commonMain)
+        }
+
         val nativeMain by creating {
             dependsOn(nonJvmMain)
         }
@@ -59,6 +68,9 @@ kotlin {
             val main by it.compilations.getting {}
             main.defaultSourceSet {
                 dependsOn(nativeMain)
+                if (it in watchOsTargets) {
+                    dependsOn(watchOsMain)
+                }
             }
         }
     }
