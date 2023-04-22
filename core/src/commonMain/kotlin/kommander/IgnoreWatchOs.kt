@@ -3,4 +3,4 @@ package kommander
 @OptIn(ExperimentalMultiplatform::class)
 @OptionalExpectation
 @Target(AnnotationTarget.CLASS, AnnotationTarget.FUNCTION)
-expect annotation class JsIgnore()
+expect annotation class IgnoreWatchOs()

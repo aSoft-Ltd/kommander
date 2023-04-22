@@ -48,6 +48,10 @@ kotlin {
             dependsOn(commonMain)
         }
 
+        val osxMain by creating {
+            dependsOn(commonMain)
+        }
+
         val nativeMain by creating {
             dependsOn(nonJvmMain)
         }
@@ -68,9 +72,8 @@ kotlin {
             val main by it.compilations.getting {}
             main.defaultSourceSet {
                 dependsOn(nativeMain)
-                if (it in watchOsTargets) {
-                    dependsOn(watchOsMain)
-                }
+                if (it in watchOsTargets) dependsOn(watchOsMain)
+                if (it in osxTargets) dependsOn(osxMain)
             }
         }
     }

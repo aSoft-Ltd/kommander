@@ -2,4 +2,4 @@ package kommander
 
 import kotlin.test.Ignore
 
-actual typealias NativeIgnore = Ignore
+actual typealias IgnoreOSX = Ignore
