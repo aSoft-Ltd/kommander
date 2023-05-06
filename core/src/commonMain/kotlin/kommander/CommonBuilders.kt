@@ -1,5 +1,6 @@
 @file:JvmName("Kommander")
 @file:JvmSynthetic
+@file:Suppress("NOTHING_TO_INLINE")
 
 package kommander
 
@@ -24,7 +25,14 @@ inline fun <E> expect(
     builder: Expect<E>.() -> Unit
 ): Expect<E> = expect(value).apply(builder)
 
-fun expectFunction(lambda: ()->Unit): kommander.ExpectLambda = ExpectLambda(lambda)
+inline fun <N : Comparable<N>> Expect<N>.toBeBetween(low: N, high: N) {
+    toBeLessThanOrEqualTo(high)
+    toBeGreaterThanOrEqualTo(low)
+}
+
+inline fun Expect<Double>.toBeAround(value: Double, tolerance: Double = 0.01) = expect(value).toBeBetween(value - tolerance, value + tolerance)
+
+fun expectFunction(lambda: () -> Unit): kommander.ExpectLambda = ExpectLambda(lambda)
 
 inline fun <E> expectMany(
     value: Collection<E>,
