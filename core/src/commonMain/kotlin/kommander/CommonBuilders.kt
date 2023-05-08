@@ -30,7 +30,7 @@ inline fun <N : Comparable<N>> Expect<N>.toBeBetween(low: N, high: N) {
     toBeGreaterThanOrEqualTo(low)
 }
 
-inline fun Expect<Double>.toBeAround(value: Double, tolerance: Double = 0.01) = expect(value).toBeBetween(value - tolerance, value + tolerance)
+inline fun Expect<Double>.toBeAround(value: Double, tolerance: Double = 0.001) = toBeBetween(value - tolerance, value + tolerance)
 
 fun expectFunction(lambda: () -> Unit): kommander.ExpectLambda = ExpectLambda(lambda)
 
