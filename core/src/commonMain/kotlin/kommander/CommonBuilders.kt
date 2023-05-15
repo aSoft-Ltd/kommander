@@ -26,8 +26,15 @@ inline fun <E> expect(
 ): Expect<E> = expect(value).apply(builder)
 
 inline fun <N : Comparable<N>> Expect<N>.toBeBetween(low: N, high: N) {
-    toBeLessThanOrEqualTo(high)
-    toBeGreaterThanOrEqualTo(low)
+    if (value < low || value > high) {
+        val error = """
+        
+    Expected : $value to be in the range $low - $high"
+    ==============================
+   
+    """.trimIndent()
+        throw AssertionError(error)
+    }
 }
 
 inline fun Expect<Double>.toBeAround(value: Double, tolerance: Double = 0.001) = toBeBetween(value - tolerance, value + tolerance)
