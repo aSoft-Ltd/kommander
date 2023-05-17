@@ -6,7 +6,7 @@
 description = "A highly interoperable kotlin multiplatform assertion library"
 
 kotlin {
-    if (Targeting.JVM) jvm {
+    jvm {
         library()
         withJava()
     }
