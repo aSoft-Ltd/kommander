@@ -9,7 +9,10 @@ import expect.internal.LambdaExpectationImpl
 import kotlin.jvm.JvmName
 import kotlin.jvm.JvmSynthetic
 
-@Deprecated("use kommander instead")
+@Deprecated(
+    message = "use kommander instead",
+    replaceWith = ReplaceWith("expect(value)", "kommander.expect"),
+)
 fun <E> expect(value: E): BasicExpectation<E> = BasicExpectationImpl(value)
 
 @Deprecated("use kommander instead")
@@ -31,7 +34,7 @@ inline fun <E> expect(
 ): BasicExpectation<E> = expect(value).apply(builder)
 
 @Deprecated("use kommander instead")
-fun expectFunction(lambda: ()->Unit): LambdaExpectation = LambdaExpectationImpl(lambda)
+fun expectFunction(lambda: () -> Unit): LambdaExpectation = LambdaExpectationImpl(lambda)
 
 @Deprecated("use kommander instead")
 inline fun <E> expectMany(
