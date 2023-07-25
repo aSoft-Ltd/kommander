@@ -7,8 +7,8 @@ description = "A highly interoperable kotlin multiplatform assertion library"
 
 kotlin {
     jvm {
-        library()
         withJava()
+        library()
     }
 
     if (Targeting.JS) js(IR) { library() }
