@@ -5,6 +5,9 @@
 
 description = "A highly interoperable kotlin multiplatform assertion library"
 
+//group = "tz.co.asoft"
+//version = libs.versions.asoft.get()
+
 kotlin {
     jvm {
         withJava()

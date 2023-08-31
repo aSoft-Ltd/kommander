@@ -1,7 +1,7 @@
 import com.vanniktech.maven.publish.MavenPublishBaseExtension
 import com.vanniktech.maven.publish.SonatypeHost
 
-@Suppress("DSL_SCOPE_VIOLATION") plugins {
+plugins {
     alias(kotlinz.plugins.multiplatform) apply false
     alias(asoft.plugins.library) apply false
     alias(vanniktech.plugins.maven.publish) apply false
@@ -12,10 +12,7 @@ repositories {
     publicRepos()
 }
 
-val v = asoft.versions.root.get()
-
-group = "tz.co.asoft"
-version = v
+val v = libs.versions.asoft.get()
 
 tasks.dokkaHtmlMultiModule {
     moduleName.set("Kommander")
@@ -24,12 +21,16 @@ tasks.dokkaHtmlMultiModule {
     includes.from("ReadMe.md")
 }
 
+allprojects {
+    group = "tz.co.asoft"
+    version = v
+}
+
 subprojects {
     apply(plugin = "org.jetbrains.dokka")
     apply(plugin = "com.vanniktech.maven.publish")
 
     val p = this
-    version = v
 
     configure<MavenPublishBaseExtension> {
         publishToMavenCentral(SonatypeHost.DEFAULT,automaticRelease = true)

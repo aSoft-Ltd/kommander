@@ -17,7 +17,7 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                api(projects.kommanderCore)
+                api(libs.kommander.core)
                 api(kotlinx.coroutines.test)
             }
         }
