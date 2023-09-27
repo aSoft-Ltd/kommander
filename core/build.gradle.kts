@@ -47,17 +47,29 @@ kotlin {
             dependsOn(commonMain)
         }
 
-        val watchOsMain by creating {
-            dependsOn(commonMain)
-        }
-
-        val osxMain by creating {
-            dependsOn(commonMain)
-        }
-
         val nativeMain by creating {
             dependsOn(nonJvmMain)
         }
+
+        if(Targeting.OSX) {
+            val osxMain by creating {
+                dependsOn(nativeMain)
+            }
+
+            val watchOsMain by creating {
+                dependsOn(osxMain)
+            }
+
+            nativeTargets.forEach {
+                val main by it.compilations.getting {}
+                main.defaultSourceSet {
+                    dependsOn(nativeMain)
+                    if (it in watchOsTargets) dependsOn(watchOsMain)
+                    if (it in osxTargets) dependsOn(osxMain)
+                }
+            }
+        }
+
 
         if (Targeting.JS) {
             val jsMain by getting {
@@ -75,8 +87,6 @@ kotlin {
             val main by it.compilations.getting {}
             main.defaultSourceSet {
                 dependsOn(nativeMain)
-                if (it in watchOsTargets) dependsOn(watchOsMain)
-                if (it in osxTargets) dependsOn(osxMain)
             }
         }
     }
