@@ -78,7 +78,7 @@ kotlin {
         }
 
         if (Targeting.WASM) {
-            val wasmMain by getting {
+            val wasmJsMain by getting {
                 dependsOn(nonJvmMain)
             }
         }
