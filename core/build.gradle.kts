@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.targets.js.KotlinWasmTargetType
+
 @Suppress("DSL_SCOPE_VIOLATION") plugins {
     kotlin("multiplatform")
     id("tz.co.asoft.library")
@@ -15,8 +17,8 @@ kotlin {
     }
 
     if (Targeting.JS) js(IR) { library() }
-    if (Targeting.WASM) wasm { library() }
-
+    if (Targeting.WASM) wasmJs { library() }
+    if (Targeting.WASM) wasmWasi { library() }
     val iosTargets = if (Targeting.OSX) iosTargets() else listOf()
     val tvOsTargets = if (Targeting.OSX) tvOsTargets() else listOf()
     val macOsTargets = if (Targeting.OSX) macOsTargets() else listOf()
@@ -79,6 +81,10 @@ kotlin {
 
         if (Targeting.WASM) {
             val wasmJsMain by getting {
+                dependsOn(nonJvmMain)
+            }
+
+            val wasmWasiMain by getting {
                 dependsOn(nonJvmMain)
             }
         }

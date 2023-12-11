@@ -8,7 +8,7 @@ description = "An extension of kommander-core to ease assertions in a coroutine 
 kotlin {
     if (Targeting.JVM) jvm { library() }
     if (Targeting.JS) js(IR) { library() }
-//    if (Targeting.WASM) wasm { library() }
+    if (Targeting.WASM) wasmJs { library() }
     if (Targeting.OSX) osxTargets()
     if (Targeting.NDK) ndkTargets()
     if (Targeting.LINUX) linuxTargets()
@@ -19,6 +19,7 @@ kotlin {
             dependencies {
                 api(projects.kommanderCore)
                 api(kotlinx.coroutines.test)
+                api(kotlinx.atomicfu)?.because("linuxX64 doesn't compile without it")
             }
         }
     }
