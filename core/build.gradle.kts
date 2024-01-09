@@ -1,4 +1,6 @@
 import org.jetbrains.kotlin.gradle.targets.js.KotlinWasmTargetType
+import org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootExtension
+import org.jetbrains.kotlin.gradle.targets.js.npm.tasks.KotlinNpmInstallTask
 
 @Suppress("DSL_SCOPE_VIOLATION") plugins {
     kotlin("multiplatform")
