@@ -1,3 +1,5 @@
+import org.gradle.kotlin.dsl.the
+import org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsEnvSpec
 import org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootExtension
 import org.jetbrains.kotlin.gradle.targets.js.npm.tasks.KotlinNpmInstallTask
 
@@ -20,6 +22,7 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             api(projects.kommanderCore)
+            api(kotlin("test"))
             api(kotlinx.coroutines.test)
             api(kotlinx.atomicfu)?.because("linuxX64 doesn't compile without it")
         }
@@ -30,9 +33,9 @@ kotlin {
     }
 }
 
-rootProject.the<NodeJsRootExtension>().apply {
-    nodeVersion = npm.versions.node.version.get()
-    nodeDownloadBaseUrl = npm.versions.node.url.get()
+rootProject.the<NodeJsEnvSpec>().apply {
+    version = npm.versions.node.version.get()
+    downloadBaseUrl = npm.versions.node.url.get()
 }
 
 rootProject.tasks.withType<KotlinNpmInstallTask>().configureEach {

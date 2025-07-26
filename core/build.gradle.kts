@@ -1,5 +1,4 @@
-import org.jetbrains.kotlin.gradle.targets.js.KotlinWasmTargetType
-import org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootExtension
+import org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsEnvSpec
 import org.jetbrains.kotlin.gradle.targets.js.npm.tasks.KotlinNpmInstallTask
 
 plugins {
@@ -13,11 +12,7 @@ description = "A highly interoperable kotlin multiplatform assertion library"
 //version = libs.versions.asoft.get()
 
 kotlin {
-    jvm {
-        withJava()
-        library()
-    }
-
+    if (Targeting.JVM) jvm { library() }
     if (Targeting.JS) js(IR) { library() }
     if (Targeting.WASM) wasmJs { library() }
     if (Targeting.WASM) wasmWasi { library() }
@@ -47,7 +42,7 @@ kotlin {
             dependsOn(nonJvmMain)
         }
 
-        if(Targeting.OSX) {
+        if (Targeting.OSX) {
             val osxMain by creating {
                 dependsOn(nativeMain)
             }
@@ -92,9 +87,9 @@ kotlin {
     }
 }
 
-rootProject.the<NodeJsRootExtension>().apply {
-    nodeVersion = npm.versions.node.version.get()
-    nodeDownloadBaseUrl = npm.versions.node.url.get()
+rootProject.the<NodeJsEnvSpec>().apply {
+    version = npm.versions.node.version.get()
+    downloadBaseUrl = npm.versions.node.url.get()
 }
 
 rootProject.tasks.withType<KotlinNpmInstallTask>().configureEach {
