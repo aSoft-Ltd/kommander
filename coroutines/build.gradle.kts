@@ -18,12 +18,14 @@ kotlin {
     if (Targeting.MINGW) mingwTargets()
 
     sourceSets {
-        val commonMain by getting {
-            dependencies {
-                api(projects.kommanderCore)
-                api(kotlinx.coroutines.test)
-                api(kotlinx.atomicfu)?.because("linuxX64 doesn't compile without it")
-            }
+        commonMain.dependencies {
+            api(projects.kommanderCore)
+            api(kotlinx.coroutines.test)
+            api(kotlinx.atomicfu)?.because("linuxX64 doesn't compile without it")
+        }
+
+        jvmTest.dependencies {
+            api(kotlin("test-junit5"))
         }
     }
 }

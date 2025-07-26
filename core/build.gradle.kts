@@ -39,14 +39,6 @@ kotlin {
             }
         }
 
-        if (Targeting.JVM) {
-            val jvmMain by getting {
-                dependencies {
-                    api(kotlin("test-junit5"))
-                }
-            }
-        }
-
         val nonJvmMain by creating {
             dependsOn(commonMain)
         }
