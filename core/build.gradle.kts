@@ -12,7 +12,7 @@ description = "A highly interoperable kotlin multiplatform assertion library"
 
 kotlin {
     if (Targeting.JVM) jvm { library() }
-    if (Targeting.JS) js(IR) { library() }
+    if (Targeting.JS) js(IR) { library() } // untill https://youtrack.jetbrains.com/issue/KT-80014 gets fixed // untill https://youtrack.jetbrains.com/issue/KT-80014 gets fixed
     if (Targeting.WASM) wasmJs { library() }
     if (Targeting.WASM) wasmWasi { library() }
     val iosTargets = if (Targeting.OSX) iosTargets() else listOf()
@@ -61,7 +61,7 @@ kotlin {
         }
 
 
-        if (Targeting.JS) {
+        if (Targeting.JS) { // untill https://youtrack.jetbrains.com/issue/KT-80014 gets fixed
             val jsMain by getting {
                 dependsOn(nonJvmMain)
             }
